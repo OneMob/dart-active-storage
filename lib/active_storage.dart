@@ -21,7 +21,7 @@ class ActiveStorage {
     required File file,
     ProgressCallback? onProgress,
   }) async {
-    int fileSize = await file.length();
+    int fileSize = file.lengthSync();
     String checksum = await FileChecksum.getMd5AsBase64(file: file);
     DirectUploadResponse response = await uploader.directUpload(
       DirectUploadRequest(
